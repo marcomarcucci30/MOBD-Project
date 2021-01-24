@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.8.3" />
+<title>hyperparameter_tuning API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>hyperparameter_tuning</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import os
+import warnings
+
+import numpy as np
+import pandas as pd
+
+import sklearn
+import sklearn.metrics as metrics
+from timeit import default_timer as timer
+from sklearn.feature_selection import SelectKBest, chi2, f_classif, mutual_info_classif, GenericUnivariateSelect
+
+from scaler import minMaxScaler, robustScale, max_abs_scaler, standard_scaler, delete_outliers
+from balancer import undersampling, smote_nc, smote_tomek, svm_smote, smote, over_sample, adasyn
+
+from classifier import qda_param_selection, k_neighbors_param_selection, perceptron_adaboost_param_selection, \
+    gbc_param_selection
+
+import seaborn as sns
+warnings.simplefilter(&#34;ignore&#34;)
+os.environ[&#34;PYTHONWARNINGS&#34;] = &#34;ignore&#34;
+
+
+
+#import matplotlib
+# import tensorflow as tf
+# from matplotlib import pyplot as plt
+# from numba import jit, cuda
+
+
+print(&#34;numpy:&#34;, np.__version__)
+print(&#34;pandas:&#34;, pd.__version__)
+#conda print(&#34;matplotlib:&#34;, matplotlib.__version__)
+print(&#39;scikit-learn:&#39;, sklearn.__version__)
+
+
+&#34;&#34;&#34;Dictionary of Features Selection index tested&#34;&#34;&#34;
+feat_model = {
+    &#39;mutual_info_classif&#39;: mutual_info_classif,
+    &#39;chi&#39;: chi2,
+    &#39;f_classif&#39;: f_classif,
+    &#39;none&#39;: None
+}
+
+&#34;&#34;&#34;Dictionary of balance technique tested&#34;&#34;&#34;
+balance_techniques = {
+    &#39;smote_tomek&#39;: smote_tomek,
+    &#39;undersampling&#39;: undersampling,
+    &#39;adasyn&#39;: adasyn,
+    &#39;svm_smote&#39;: svm_smote,
+    &#39;smote&#39;: smote,
+    &#39;smote_nc&#39;: smote_nc,
+    &#39;over_sample&#39;: over_sample,
+    &#39;none&#39;: None
+}
+
+&#34;&#34;&#34;Dictionary of scale technique tested&#34;&#34;&#34;
+scale_techniques = {
+    &#39;max_abs_scaler&#39;: max_abs_scaler,
+    &#39;standard_scaler&#39;: standard_scaler,
+    &#39;minMaxScaler&#39;: minMaxScaler,
+    &#39;robustScale&#39;: robustScale,
+    &#39;none&#39;: None,
+}
+
+&#34;&#34;&#34;Manage outliers&#34;&#34;&#34;
+outliers = {
+    &#39;none&#39;: None,
+    &#39;delete&#39;: delete_outliers
+}
+
+
+def get_na_count(dataset):
+    &#34;&#34;&#34;Function which count the number of missing values for each attributes
+
+    Args:
+        dataset: dataset
+
+    Returns:
+        number of missing values for each attributes
+    &#34;&#34;&#34;
+    boolean_mask = dataset.isna()
+    return boolean_mask.sum(axis=0)
+
+
+def fill_na(dataset):
+    &#34;&#34;&#34;Substitutes missing values with the mean value calculated only in training set for each feature
+
+    Args:
+        dataset: dataset
+
+    Returns:
+        dataset without missing values
+    &#34;&#34;&#34;
+    x = dataset.sample(frac=0.80, random_state=0)
+    features = pd.read_csv(proj_name, nrows=1).columns.tolist()[:n_feat]
+    for feat in features:
+        feature_mean = x[feat].mean()
+        dataset[feat] = dataset[feat].fillna(feature_mean)
+    return dataset
+
+
+def main():
+    global proj_name, n_feat
+    start = timer()
+    proj_name = &#39;./training_set.csv&#39;
+    n_feat = 20
+
+    for outlier in outliers:
+
+        for k in [15]:
+
+            for mod in feat_model:
+
+                for scaler in scale_techniques:
+
+                    for balancer in balance_techniques:
+
+                        if mod == &#39;chi&#39; and scaler != &#39;minMaxScaler&#39;:
+                            break
+
+                        global x, y
+
+                        # Retrieve dataset
+                        dataset = pd.read_csv(proj_name)
+                        # print(&#39;Number of NaN Values: \n&#39; + str(get_na_count(dataset)))
+
+                        # check proportion class
+                        count = dataset[&#39;CLASS&#39;].value_counts()
+                        c1 = count[0]
+                        c2 = count[1]
+                        c3 = count[2]
+                        c4 = count[3]
+                        ct = c1 + c2 + c3 + c4
+                        # print(&#39;CLASS 1 percentage:&#39;,c1*100/ct, &#39;%\nCLASS 2 percentage:&#39;,c2*100/ct,
+                        #     &#39;%\nCLASS 3 percentage:&#39;,c3*100/ct, &#39;%\nCLASS 4 percentage:&#39;,c4*100/ct,&#39;%&#39;)
+
+                        # Fill missing values on dataset
+                        dataset = fill_na(dataset)
+
+                        # Split Dataset in training set and testing set
+                        training = dataset.sample(frac=0.80, random_state=0)
+                        testing = dataset.drop(training.index)
+
+                        # ************OUTLIER************
+                        if outlier != &#39;none&#39;:
+                            training = outliers[outlier](training)
+
+                        train_x = training.iloc[:, 0:n_feat].values
+                        train_y = training.iloc[:, n_feat].values
+
+                        test_x = testing.iloc[:, 0:n_feat].values
+                        test_y = testing.iloc[:, n_feat].values
+
+
+                        # ************BALANCING************
+                        if balancer != &#39;none&#39;:
+                            train_x, train_y = balance_techniques[balancer](train_x, train_y)
+
+                        # ************SCALING************
+                        if scaler != &#39;none&#39;:
+                            train_x, test_x = scale_techniques[scaler](train_x, test_x)
+
+                        # ************FEATURES SELECTION************
+                        if mod != &#39;none&#39;:
+                            feat_val = feat_model[mod]
+
+                            k_best = SelectKBest(feat_val, k=k)
+
+                            train_x = k_best.fit_transform(train_x, train_y)
+                            mask = k_best.get_support()
+
+                            # Features selection in testing set too
+                            test_x = test_x[:, mask]
+
+                            #for i in range(len(k_best.scores_)):
+                            #   print(&#39;Feature %d: %f&#39; % (i, k_best.scores_[i]))
+
+                        start_classifier = timer()
+
+                        # svm_classifier = svm_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+
+                        # mlp_classifier = mlp_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+                        # mlp_first_paramgrid_classifier = mlp_param_selection_first_paramgrid(train_x, train_y, n_folds=10,metric=&#39;f1_macro&#39;)
+                        # mlp_second_paramgrid_classifier = mlp_param_selection_second_paramgrid(train_x, train_y,n_folds=10,metric=&#39;f1_macro&#39;)
+                        # mlp_third_paramgrid_classifier = mlp_param_selection_second_paramgrid(train_x, train_y,n_folds=10,metric=&#39;f1_macro&#39;)
+
+                        # rf_classifier = random_forest_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+
+                        qda_classifiers = qda_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+                        # lda_shrink_classifiers = lda_shrink_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+                        # lda_svd_classifiers = lda_svd_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+
+                        #gbc_classifiers = gbc_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+
+                        #k_neighbors_classifiers = k_neighbors_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+                        #perceptron_adaboost_classifier = perceptron_adaboost_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+
+                        f1_score = evaluate_classifier(qda_classifiers, test_x, test_y)
+
+                        print(f1_score, k, mod, scaler, balancer, outlier, qda_classifiers.best_params_,
+                              str(-start_classifier + timer()), flush=True)
+
+                        # UPDATES FILE
+                        results = open(&#39;results.txt&#39;, &#39;a&#39;)
+                        out = &#39; &#39;.join([str(k), mod, str(f1_score), scaler, balancer, outlier,
+                                        str(qda_classifiers.best_params_), str(-start_classifier + timer()), &#39;\n&#39;])
+                        results.write(out)
+                        results.close()
+
+            print(&#34;Elapsed time:&#34;, timer() - start)
+
+
+def evaluate_classifier(classifier, test_x, test_y):
+    &#34;&#34;&#34;Evaluate the classifier on the testing set specified
+
+    Args:
+        classifier: Classifier to evaluate
+        test_x: Testing set without Class Target
+        test_y: Testing set Class Target
+
+    Returns:
+        F1_MACRO metric
+    &#34;&#34;&#34;
+    pred_y = classifier.predict(test_x)
+    f1_score = metrics.f1_score(test_y, pred_y, average=&#39;macro&#39;)
+    return f1_score
+
+
+if __name__ == &#39;__main__&#39;:
+    main()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-variables">Global variables</h2>
+<dl>
+<dt id="hyperparameter_tuning.balance_techniques"><code class="name">var <span class="ident">balance_techniques</span></code></dt>
+<dd>
+<div class="desc"><p>Dictionary of scale technique tested</p></div>
+</dd>
+<dt id="hyperparameter_tuning.feat_model"><code class="name">var <span class="ident">feat_model</span></code></dt>
+<dd>
+<div class="desc"><p>Dictionary of balance technique tested</p></div>
+</dd>
+<dt id="hyperparameter_tuning.scale_techniques"><code class="name">var <span class="ident">scale_techniques</span></code></dt>
+<dd>
+<div class="desc"><p>Manage outliers</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="hyperparameter_tuning.evaluate_classifier"><code class="name flex">
+<span>def <span class="ident">evaluate_classifier</span></span>(<span>classifier, test_x, test_y)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Evaluate the classifier on the testing set specified</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>classifier</code></strong></dt>
+<dd>Classifier to evaluate</dd>
+<dt><strong><code>test_x</code></strong></dt>
+<dd>Testing set without Class Target</dd>
+<dt><strong><code>test_y</code></strong></dt>
+<dd>Testing set Class Target</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>F1_MACRO metric</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def evaluate_classifier(classifier, test_x, test_y):
+    &#34;&#34;&#34;Evaluate the classifier on the testing set specified
+
+    Args:
+        classifier: Classifier to evaluate
+        test_x: Testing set without Class Target
+        test_y: Testing set Class Target
+
+    Returns:
+        F1_MACRO metric
+    &#34;&#34;&#34;
+    pred_y = classifier.predict(test_x)
+    f1_score = metrics.f1_score(test_y, pred_y, average=&#39;macro&#39;)
+    return f1_score</code></pre>
+</details>
+</dd>
+<dt id="hyperparameter_tuning.fill_na"><code class="name flex">
+<span>def <span class="ident">fill_na</span></span>(<span>dataset)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Substitutes missing values with the mean value calculated only in training set for each feature</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>dataset</code></strong></dt>
+<dd>dataset</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>dataset without missing values</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fill_na(dataset):
+    &#34;&#34;&#34;Substitutes missing values with the mean value calculated only in training set for each feature
+
+    Args:
+        dataset: dataset
+
+    Returns:
+        dataset without missing values
+    &#34;&#34;&#34;
+    x = dataset.sample(frac=0.80, random_state=0)
+    features = pd.read_csv(proj_name, nrows=1).columns.tolist()[:n_feat]
+    for feat in features:
+        feature_mean = x[feat].mean()
+        dataset[feat] = dataset[feat].fillna(feature_mean)
+    return dataset</code></pre>
+</details>
+</dd>
+<dt id="hyperparameter_tuning.get_na_count"><code class="name flex">
+<span>def <span class="ident">get_na_count</span></span>(<span>dataset)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function which count the number of missing values for each attributes</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>dataset</code></strong></dt>
+<dd>dataset</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>number of missing values for each attributes</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_na_count(dataset):
+    &#34;&#34;&#34;Function which count the number of missing values for each attributes
+
+    Args:
+        dataset: dataset
+
+    Returns:
+        number of missing values for each attributes
+    &#34;&#34;&#34;
+    boolean_mask = dataset.isna()
+    return boolean_mask.sum(axis=0)</code></pre>
+</details>
+</dd>
+<dt id="hyperparameter_tuning.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main():
+    global proj_name, n_feat
+    start = timer()
+    proj_name = &#39;./training_set.csv&#39;
+    n_feat = 20
+
+    for outlier in outliers:
+
+        for k in [15]:
+
+            for mod in feat_model:
+
+                for scaler in scale_techniques:
+
+                    for balancer in balance_techniques:
+
+                        if mod == &#39;chi&#39; and scaler != &#39;minMaxScaler&#39;:
+                            break
+
+                        global x, y
+
+                        # Retrieve dataset
+                        dataset = pd.read_csv(proj_name)
+                        # print(&#39;Number of NaN Values: \n&#39; + str(get_na_count(dataset)))
+
+                        # check proportion class
+                        count = dataset[&#39;CLASS&#39;].value_counts()
+                        c1 = count[0]
+                        c2 = count[1]
+                        c3 = count[2]
+                        c4 = count[3]
+                        ct = c1 + c2 + c3 + c4
+                        # print(&#39;CLASS 1 percentage:&#39;,c1*100/ct, &#39;%\nCLASS 2 percentage:&#39;,c2*100/ct,
+                        #     &#39;%\nCLASS 3 percentage:&#39;,c3*100/ct, &#39;%\nCLASS 4 percentage:&#39;,c4*100/ct,&#39;%&#39;)
+
+                        # Fill missing values on dataset
+                        dataset = fill_na(dataset)
+
+                        # Split Dataset in training set and testing set
+                        training = dataset.sample(frac=0.80, random_state=0)
+                        testing = dataset.drop(training.index)
+
+                        # ************OUTLIER************
+                        if outlier != &#39;none&#39;:
+                            training = outliers[outlier](training)
+
+                        train_x = training.iloc[:, 0:n_feat].values
+                        train_y = training.iloc[:, n_feat].values
+
+                        test_x = testing.iloc[:, 0:n_feat].values
+                        test_y = testing.iloc[:, n_feat].values
+
+
+                        # ************BALANCING************
+                        if balancer != &#39;none&#39;:
+                            train_x, train_y = balance_techniques[balancer](train_x, train_y)
+
+                        # ************SCALING************
+                        if scaler != &#39;none&#39;:
+                            train_x, test_x = scale_techniques[scaler](train_x, test_x)
+
+                        # ************FEATURES SELECTION************
+                        if mod != &#39;none&#39;:
+                            feat_val = feat_model[mod]
+
+                            k_best = SelectKBest(feat_val, k=k)
+
+                            train_x = k_best.fit_transform(train_x, train_y)
+                            mask = k_best.get_support()
+
+                            # Features selection in testing set too
+                            test_x = test_x[:, mask]
+
+                            #for i in range(len(k_best.scores_)):
+                            #   print(&#39;Feature %d: %f&#39; % (i, k_best.scores_[i]))
+
+                        start_classifier = timer()
+
+                        # svm_classifier = svm_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+
+                        # mlp_classifier = mlp_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+                        # mlp_first_paramgrid_classifier = mlp_param_selection_first_paramgrid(train_x, train_y, n_folds=10,metric=&#39;f1_macro&#39;)
+                        # mlp_second_paramgrid_classifier = mlp_param_selection_second_paramgrid(train_x, train_y,n_folds=10,metric=&#39;f1_macro&#39;)
+                        # mlp_third_paramgrid_classifier = mlp_param_selection_second_paramgrid(train_x, train_y,n_folds=10,metric=&#39;f1_macro&#39;)
+
+                        # rf_classifier = random_forest_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+
+                        qda_classifiers = qda_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+                        # lda_shrink_classifiers = lda_shrink_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+                        # lda_svd_classifiers = lda_svd_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+
+                        #gbc_classifiers = gbc_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+
+                        #k_neighbors_classifiers = k_neighbors_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+                        #perceptron_adaboost_classifier = perceptron_adaboost_param_selection(train_x, train_y, n_folds=10, metric=&#39;f1_macro&#39;)
+
+                        f1_score = evaluate_classifier(qda_classifiers, test_x, test_y)
+
+                        print(f1_score, k, mod, scaler, balancer, outlier, qda_classifiers.best_params_,
+                              str(-start_classifier + timer()), flush=True)
+
+                        # UPDATES FILE
+                        results = open(&#39;results.txt&#39;, &#39;a&#39;)
+                        out = &#39; &#39;.join([str(k), mod, str(f1_score), scaler, balancer, outlier,
+                                        str(qda_classifiers.best_params_), str(-start_classifier + timer()), &#39;\n&#39;])
+                        results.write(out)
+                        results.close()
+
+            print(&#34;Elapsed time:&#34;, timer() - start)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1><a href="index.html">Index</a></h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-variables">Global variables</a></h3>
+<ul class="">
+<li><code><a title="hyperparameter_tuning.balance_techniques" href="#hyperparameter_tuning.balance_techniques">balance_techniques</a></code></li>
+<li><code><a title="hyperparameter_tuning.feat_model" href="#hyperparameter_tuning.feat_model">feat_model</a></code></li>
+<li><code><a title="hyperparameter_tuning.scale_techniques" href="#hyperparameter_tuning.scale_techniques">scale_techniques</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="hyperparameter_tuning.evaluate_classifier" href="#hyperparameter_tuning.evaluate_classifier">evaluate_classifier</a></code></li>
+<li><code><a title="hyperparameter_tuning.fill_na" href="#hyperparameter_tuning.fill_na">fill_na</a></code></li>
+<li><code><a title="hyperparameter_tuning.get_na_count" href="#hyperparameter_tuning.get_na_count">get_na_count</a></code></li>
+<li><code><a title="hyperparameter_tuning.main" href="#hyperparameter_tuning.main">main</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.8.3</a>.</p>
+</footer>
+</body>
+</html>
